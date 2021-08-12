@@ -15,7 +15,7 @@ Derfor er det fint å hente seg en kaffe hvis man gjør en DNS endring og det ik
 Først, søk etter route53 i søkefeltet i toppen av aws-consolet, eller gå inn her: https://console.aws.amazon.com/route53/v2/home#Dashboard.
 
 Det bør se noe slikt ut.
-![](route53-dashboard.png)
+![](https://github.com/halvorhm/aws-workshop/blob/b409695432ce5bc7336dc61ebc368dc17ed4b719/Oppgave2/route53-dashboard.PNG)
 
 ## 2.2
 Deretter navigerer vi oss inn i domenet vårt. Gå til `Hosted zones` og velg `bekk.cloud`. Her inne skal vi lage DNS-recorden vår.
@@ -23,7 +23,7 @@ Deretter navigerer vi oss inn i domenet vårt. Gå til `Hosted zones` og velg `b
 ## 2.3
 Velg `Create Record`. Du kan enten fylle den ut etter eksempelet under, eller bruke `switch to wizard` og følge oppskriften under typen `simple routing`. Husk å sette TTL til 60 sekunder, så slipper man å vente så lenge seinere hvis man gjør endringer.
 
-![](create-a-record.png)
+![](https://github.com/halvorhm/aws-workshop/blob/b409695432ce5bc7336dc61ebc368dc17ed4b719/Oppgave2/create-a-record.PNG)
 
 ## 2.4
 
