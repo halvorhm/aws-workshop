@@ -110,7 +110,7 @@ database.scan(params).promise();
 
 ```
 
-For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:
+For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
 `serverless invoke local --function hentHyttedata`
 
 
