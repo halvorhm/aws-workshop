@@ -51,17 +51,26 @@ Nå som vi har prøvd oss på å kjøre og deploye en funksjon, skal vi lage en 
 https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=bekk_hytter;tab=items
 
 
-Vi lager den nye funksjonen vår i handler.js-fila som ble opprettet da du lagde serverless-prosjekt. 
-- Opprett en ny funksjon som du kaller hentHyttedata e.l.. Hvis du vil, kan du ta utgangspunkt i hello-funksjonen som allerede ligger der ved å kopiere den, fjerne alt innhold og endre navn. Vi lar den stå tom inntil videre.
+Funksjonen skal hente hytte-informasjon om alle hyttene fra tabellen, og printe denne informasjonen med console.log
 
-- Siden funksjonen vår skal hente data fra en DynamoDB-database, må vi gjøre noe for at javascript-koden vår skal få tilgang til denne aws-tjenesten. Dette gjør vi ved hjelp av AWS SDK, ved å legge til disse to linjene på toppen av handler.js:
+Vi lager funksjonen vår i handler.js-fila som ble opprettet da du lagde serverless-prosjekt. 
+
+- Siden vi skal hente data fra en DynamoDB-database, må vi gjøre noe for at javascript-koden vår skal få tilgang til denne aws-tjenesten. Dette gjør vi ved hjelp av AWS SDK, ved å legge til disse to linjene på toppen av handler.js:
 
 `const AWS = require('aws-sdk');`
 `const database = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});`
 
+- Opprett en ny funksjon i `handler.js` som du kaller `hentHyttedata` e.l.. Hvis du vil, kan du ta utgangspunkt i hello-funksjonen som allerede ligger der ved å kopiere den, fjerne alt innhold og endre navn.
 
 
-https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.04.html
+Info om hvordan man skriver funksjonen.
 
+For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:
+`serverless invoke local --function hentHyttedata`
+
+
+
+- Deploye, men huske å legge til funksjonen i serverless.yml
+- Kjøre funksjonen i konsollen. 
 
 ## 3.5
