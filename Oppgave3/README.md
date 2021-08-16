@@ -82,13 +82,12 @@ function lesHyttedataFraTabell() {
 
 ## 3.5
 
-I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår kan vi bruke scan-funksjonen til DynamoDB.
+I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår kan vi bruke en dynamoDB-funksjon som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
-I dette eksempelet ønsker de filmer fra 1950-1959, og de ønsker kun år og tittel.
+I dette eksempelet hentes alle data som ligger i tabellen Movies, og så filtreres dette så man kun blir sittende igjen med feltene "år" og "tittel", og bare filmer fra 1950-1959.
 
-I vårt tilfelle skal vi hente alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger å ha med er TableName.
-De andre parameterne kommer vi tilbake til i senere oppgaver.
+I vårt tilfelle vil vi foreløpig ha tak i alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger å ha med er TableName. De andre parameterne trenger dere ikke å tenke på nå. Vi kommer tilbake til det i senere oppgaver :) 
 
 - Ta utgangspunkt i eksempelet under og fyll ut funksjonen lesHyttedataFraTabell.
 
@@ -116,5 +115,3 @@ For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som d
 
 - Deploye, men huske å legge til funksjonen i serverless.yml
 - Kjøre funksjonen i konsollen. 
-
-## 3.5
