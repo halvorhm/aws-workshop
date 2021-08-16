@@ -18,7 +18,29 @@ const ddb = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
 
 [AWS.DynamoDB.DocumentClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html) inneholder nyttige metoder for å gjøre ting med databasen (get, put, query, delete osv.).
 
-Nå er vi klare til å begynne på selve funksjonen! :) Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden på forhånd.
+
+- Vi må også gjøre en liten endring i serverless.yml-fila for å få tilgang til å lese fra databasen. Legg til iamRoleStatements under provider, så det ser sånn ut:
+
+```
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: eu-west-1
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'dynamodb:*'
+      Resource:
+        - '*'
+```
+  
+  
+Nå er vi klare til å begynne på selve funksjonen! :) 
+
+
+## 4.2
+Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden på forhånd.
 
 - Kopier dette inn i handler.js:
 
@@ -36,12 +58,9 @@ module.exports.hentHyttedata = async (event, context, callback) => {
 
 function lesHyttedataFraTabell() {
    //kode for å hente data fra tabellen 
-}
+}  
 ```
-
-
-## 4.2
-
+  
 I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår skal vi bruke en metode som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
@@ -69,8 +88,10 @@ database.scan(params).promise();
 
 ```
 
-For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
-`serverless invoke local --function hentHyttedata`
+- For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
+`serverless invoke local --function hentHyttedata`. 
+
+
 
 Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata" som ligger under Lambda -> Functions i aws-consollen (nettsiden).
 
