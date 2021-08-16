@@ -127,7 +127,7 @@ Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata"
     hello:
       handler: handler.hello
 ```
-- legg til den nye funksjonen på samme måte som hello:
+- legg til dette nedenfor hello:
 ```
   hentHyttedata:
     handler: handler.hentHyttedata
@@ -136,3 +136,12 @@ Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata"
 - Prøv å deploye på nytt. Funksjonen bør nå være å finne i aws-consollen under Lambda -> Functions med navnet dittnavn-dev-hentHyttedata
 
 - Kjør funksjonen ved å trykke på den oransje test-knappen sånn som du gjorde sist.
+
+
+## 3.7
+
+Vi har ikke bruk for hello-funksjonen lenger, så denne kan vi slette.
+
+- Fjern hellofunksjonen fra handler.js og fra serverless.yml og lagre.
+- deploy med `serverless deploy --stage dev`
+- `dittnavn-dev-hello` skal nå ikke finnes under Lambda -> Functions lenger.
