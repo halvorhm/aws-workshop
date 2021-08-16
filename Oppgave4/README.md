@@ -84,7 +84,7 @@ var params = {
     }
 }
 
-database.scan(params).promise();
+ddb.scan(params).promise();
 
 ```
 
