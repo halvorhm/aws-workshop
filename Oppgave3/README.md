@@ -60,9 +60,6 @@ const database = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
 ```
 Da kan vi begynne på selve funksjonen! :)
 
-
-## 3.5
-
 - Kopier koden under inn i handler.js.
 
 ```
@@ -81,6 +78,8 @@ function lesHyttedataFraTabell() {
 ```
 
 Her mangler det kode for å både hente og printe data, så det skal vi fylle inn nå.
+
+## 3.5
 
 Vi begynner med å fylle ut funksjonen for å lese hyttedata fra tabellen.
 Til dette skal vi bruke scan-funksjonen til DynamoDB. 
@@ -106,6 +105,9 @@ var params = {
     }
 };
 ```
+
+## 3.6
+
 
 
 For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:
