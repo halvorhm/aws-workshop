@@ -77,15 +77,15 @@ function lesHyttedataFraTabell() {
 }
 ```
 
-Her mangler det kode for å både hente og printe data, så det skal vi fylle inn nå.
+Her mangler det kode for å både hente og printe data, så det skal vi fylle inn nå!
 
 ## 3.5
 
-Vi begynner med å fylle ut funksjonen for å lese hyttedata fra tabellen.
-Til dette skal vi bruke scan-funksjonen til DynamoDB. 
+Vi begynner med å fylle ut funksjonen for å lese hyttedata fra tabellen. For å hente data fra tabellen vår kan vi bruke scan-funksjonen til DynamoDB.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
-I dette eksempelet ønsker de å hente filmer fra 1950-1959, og de ønsker kun å ha tilgang til år og tittel.
+I dette eksempelet ønsker de filmer fra 1950-1959, og de ønsker kun år og tittel.
+
 I vårt tilfelle skal vi hente alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger er TableName.
 De andre parameterne kommer vi tilbake til i senere oppgaver.
 
@@ -103,7 +103,10 @@ var params = {
          ":start_yr": 1950,
          ":end_yr": 1959 
     }
-};
+}
+
+database.scan(params).promise();
+
 ```
 
 ## 3.6
