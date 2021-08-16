@@ -16,7 +16,7 @@ const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
 ```
 
-[AWS.DynamoDB.DocumentClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html) inneholder nyttige metoder for å gjøre ting med databasen (get, put, query, delete osv.). I denne oppgaven skal vi bruke scan-metoden herfra.
+[AWS.DynamoDB.DocumentClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html) inneholder nyttige metoder for å gjøre ting med databasen (get, put, query, delete osv.).
 
 Nå er vi klare til å begynne på selve funksjonen! :) Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden på forhånd.
 
@@ -42,7 +42,7 @@ function lesHyttedataFraTabell() {
 
 ## 4.2
 
-I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår kan vi bruke en dynamoDB-funksjon som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
+I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår skal vi bruke en metode som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
 I dette eksempelet hentes alle data som ligger i tabellen Movies, og så filtreres dette så man kun blir sittende igjen med feltene "yr" og "title", og bare filmer fra 1950-1959.
