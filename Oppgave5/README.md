@@ -38,7 +38,7 @@ På `Configure routes` skjermen vil vi sette metoden til `GET` og definere en pa
 
 ![](configure-5.png)
 
-"Stages" her er litt som forskjellige miljøer. Her kunne man definert en gateway for prod, dev og test separat. Siden dette er en workshop, trenger vi ikke å gjøre noe fancy her. Trykk deg videre med `Next`-knappen.
+"Stages" her er litt som forskjellige miljøer eller forskjellige versjoner av gatewayen din. Her kunne man definert en gateway for prod, dev og test eller ha en egen beta-stage når en gjør store endringer. Siden dette er en workshop, trenger vi ikke å gjøre noe fancy her. Trykk deg videre med `Next`-knappen.
 
 ![](stages.png)
 
@@ -47,7 +47,10 @@ Se over at ting ser riktig ut, hvis de ikke gjør det kan du gå tilbake og fiks
 ![](review.png)
 
 
-## 5.3 Prøvelsen
+## 5.3 Prøvelsen 
 
-## 5.x: test med CURL
+Du vil se et grønt banner øvert som sier at gatewayen har blitt lagt. Klikk der eller gå tilbake til oversikten og finn gatewayen din. Finn `Invoke URL` på siden og kopier den. 
+
+Vi kan nå prøve å kalle API-en med `CURL`(eller Postman hvis du foretrekker det). Husk å legge til endepunktet til URL-en din (`/hytter`)
+
 `curl -x GET "<din URL>"`
