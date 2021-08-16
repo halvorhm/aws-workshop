@@ -4,7 +4,7 @@
 
 Vi har nå laget en nettside ved hjelp av to AWS-tjenester: S3 (lagring) og Route53 (DNS). Det neste vi skal kikke på er tjenesten Lambda, som brukes til å kjøre funksjoner.
 
-Vi begynner med å lage en liten funksjon som returnerer en selvvalgt beskjed, og etter det skal vi lage en funksjon for å hente info om Bekk sine hytter. 
+Vi begynner med å lage en liten funksjon som returnerer en selvvalgt beskjed, og så skal vi lage en funksjon for å hente info om Bekk sine hytter fra en database.
 
 
 ## 3.1
@@ -26,21 +26,32 @@ Det skal nå være opprettet en mappe med prosjektnavnet ditt som inneholder to 
 - I `serverless.yml` trenger vi ikke å gjøre noe bortsett fra å sette riktig region. Gjør dette ved å legge til `region: eu-west-1` under `provider`.
 
 - `handler.js` inneholder javascript-koden vi skal kjøre, og er fylt ut med et ferdig eksempel. Endre `message` i denne fila til en personlig melding og lagre.
-- Gå til prosjektmappa i terminalen og deploy ved hjelp av kommandoen `serverless deploy --stage dev`.
+
+- For å kjøre en funksjon lokalt, går du inn i prosjektmappa i terminalen og skriver
+  `serverless invoke local --function navnPåFunksjonen` 
+  dvs `serverless invoke local --function hello` i dette tilfellet.
+  Du skal da få opp statusCode 200 og meldinga du har skrevet.
 
 🙌 Bra jobba! 🙌
 
 ## 3.3
 
-Nå skal vi sjekke ut det vi har gjort i aws-konsollen!
+Nå skal vi deploye funksjonen vår og sjekke ut det vi har gjort i aws-konsollen!
+
+- Gå til prosjektmappa i terminalen og deploy ved hjelp av kommandoen `serverless deploy --stage dev`.
 - Gå inn på https://console.aws.amazon.com/
 - I menyen i toppen søk etter og velg "Lambda".
-- Under "Functions" finn din funksjon (navnetditt-dev-hello) og trykk på denne.
-- For å kjøre funksjonen din trykker du på den oransje "TEST"-knappen. Får du opp et vindu som spør om _configure test event_ så bare skriv noe på Event name, f.eks. "test" og trykk Create.
+- Funksjonen din bør nå ha dukket opp under "Functions" (navnetditt-dev-hello). Trykk på denne.
+- For å kjøre funksjonen din her, trykker du på den oransje "TEST"-knappen. Får du opp et vindu som spør om _configure test event_ så bare skriv noe på Event name, f.eks. "test" og trykk Create.
 - BAM! Du har nå kjørt funksjonen din! Woop!
 
-
-## 3.3
-Her skal vi lese noe fra dynamodb og returnere det.
-
 ## 3.4
+
+Nå som vi har prøvd oss på å kjøre og deploye en funksjon, skal vi lage en funksjon som gjør noe litt mer spennende, nemlig å hente hytteinfo fra en database. Databasetabellen er allerede utfylt, og til dette er det brukt en AWS-tjeneste som heter DynamoDB. Tabellen heter bekk_hytter, og finnes her:
+https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=bekk_hytter;tab=items
+
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NodeJs.04.html
+
+
+## 3.5
