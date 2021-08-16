@@ -23,9 +23,9 @@ Default region name: eu-west-1
 Default output format: json
 Hvis du ønsker å gjøre endringer på dette seinere så finner du filen under ~/.aws/credentials.
 
-Installer serverless.
+Installer [serverless](https://www.serverless.com/framework/docs/getting-started/).
 
-
+Installer aws-sdk: `npm install aws-sdk`
 
 
 ## TODO workshop
