@@ -80,10 +80,6 @@ function lesHyttedataFraTabell() {
 }
 ```
 
-function lesHyttedataFraTabell() {
-   //kode for å hente data fra databasen 
-}
-
 Her mangler det kode for å både hente og printe data, så det skal vi fylle inn nå.
 
 Vi begynner med å fylle ut funksjonen for å lese hyttedata fra tabellen.
