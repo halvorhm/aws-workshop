@@ -65,7 +65,9 @@ Da kan vi begynne på selve funksjonen! :)
 ```
 module.exports.hentHyttedata = async (event, context, callback) => {
     await lesHyttedataFraTabell().then(hyttedata => {
-      // Kode for å printe det vi har hentet.
+      hyttedata.Items.forEach(function(hytte){
+        console.log(hytte)
+      })
 
     }).catch((err) => {
       console.error(err);
@@ -77,16 +79,15 @@ function lesHyttedataFraTabell() {
 }
 ```
 
-Her mangler det kode for å både hente og printe data, så det skal vi fylle inn nå!
 
 ## 3.5
 
-Vi begynner med å fylle ut funksjonen for å lese hyttedata fra tabellen. For å hente data fra tabellen vår kan vi bruke scan-funksjonen til DynamoDB.
+I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår kan vi bruke scan-funksjonen til DynamoDB.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
 I dette eksempelet ønsker de filmer fra 1950-1959, og de ønsker kun år og tittel.
 
-I vårt tilfelle skal vi hente alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger er TableName.
+I vårt tilfelle skal vi hente alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger å ha med er TableName.
 De andre parameterne kommer vi tilbake til i senere oppgaver.
 
 - Ta utgangspunkt i eksempelet under og fyll ut funksjonen lesHyttedataFraTabell.
@@ -109,13 +110,8 @@ database.scan(params).promise();
 
 ```
 
-## 3.6
-
-
-
 For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:
 `serverless invoke local --function hentHyttedata`
-
 
 
 - Deploye, men huske å legge til funksjonen i serverless.yml
