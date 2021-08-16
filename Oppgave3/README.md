@@ -38,7 +38,7 @@ Det skal nå være opprettet en mappe med prosjektnavnet ditt som inneholder to 
 
 Nå skal vi deploye funksjonen vår og sjekke ut det vi har gjort i aws-konsollen!
 
-- Gå til prosjektmappa i terminalen og deploy ved hjelp av kommandoen `serverless deploy --stage dev`.
+- Gå til prosjektmappa i terminalen og deploy ved hjelp av kommandoen `serverless deploy --stage dev` (dette kan ta litt tid).
 - Gå inn på https://console.aws.amazon.com/
 - I menyen i toppen søk etter og velg "Lambda".
 - Funksjonen din bør nå ha dukket opp under "Functions" (navnetditt-dev-hello). Trykk på denne.
@@ -58,9 +58,9 @@ Funksjonen vår skal hente hytte-informasjon om alle hyttene fra tabellen, og pr
 const AWS = require('aws-sdk');
 const database = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
 ```
-Da kan vi begynne på selve funksjonen! :)
+Da kan vi begynne på selve funksjonen! :) Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden på forhånd.
 
-- Kopier koden under inn i handler.js.
+- Kopier dette inn i handler.js:
 
 ```
 module.exports.hentHyttedata = async (event, context, callback) => {
@@ -75,7 +75,7 @@ module.exports.hentHyttedata = async (event, context, callback) => {
 };
 
 function lesHyttedataFraTabell() {
-   //kode for å hente data fra databasen 
+   //kode for å hente data fra tabellen 
 }
 ```
 
@@ -112,6 +112,27 @@ database.scan(params).promise();
 For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
 `serverless invoke local --function hentHyttedata`
 
+Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata" som ligger under Lambda -> Functions i aws-consollen (nettsiden).
 
-- Deploye, men huske å legge til funksjonen i serverless.yml
-- Kjøre funksjonen i konsollen. 
+
+## 3.6
+
+- Prøv å deploye den nye funksjonen slik du gjorde med hello-funksjonen med `serverless deploy --stage dev`   
+  I terminalen vil du se at den nye funksjonen ikke dukker opp under `functions` når du kjører kommandoen, og du vil heller ikke finne den under Lambda -> Functions i aws-consollen.
+  Grunnen til dette er at vi ikke har lagt til funksjonen i serverless.yml.
+
+- Åpne serverless.yml. Et stykke ned i fila står dette under functions:
+```
+  functions:
+    hello:
+      handler: handler.hello
+```
+- legg til den nye funksjonen på samme måte som hello:
+```
+  hentHyttedata:
+    handler: handler.hentHyttedata
+```
+
+- Prøv å deploye på nytt. Funksjonen bør nå være å finne i aws-consollen under Lambda -> Functions med navnet dittnavn-dev-hentHyttedata
+
+- Kjør funksjonen ved å trykke på den oransje test-knappen sånn som du gjorde sist.
