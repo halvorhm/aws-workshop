@@ -7,7 +7,7 @@ da veldig mange bruker sky nå om dagen til å kjøre løsningene sine.
 Derfor tenkte vi at det kan være fint å prøve det littegrann, så vi ser hvordan det egentlig funker. 
 
 ## Hvordan gjøre denne workshopen. 
-Start med å laste ned pre-reqs så maskinen er klargjort. 
+Start med å laste ned pre-reqs (se under) så maskinen er klargjort. 
 Deretter går dere en for en oppgave. Dere kan starte på neste så snart dere vil. 
 
 NB! Les oppgavene nøye.
