@@ -37,8 +37,8 @@ Jeg tenker vi prepper en ferdig DynamoDB table? Eller skal det også være en de
 - [ ] Oppgave 0: Sett opp miljø på maskinen din
 - [ ] Oppgave 1: Lag en s3-bøtte og en nettside
 - [ ] Oppgave 2: Vi slenger på en DNS record på bøtta så nettsiden vår har fancy nettside.
-- [ ] Oppgave 3: Lambda! Først en enkel hello-world som trigger.
-- [ ] Oppgave 4: Next up: Les fra databasen. enkel boto3 query.
+- [x] Oppgave 3: Lambda! Først en enkel hello-world som trigger.
+- [x] Oppgave 4: Next up: Les fra databasen. enkel boto3 query.
 - [ ] Oppgave 5: API gateway in da house. Først endepunkt som sender alt til lambdaen. Så bare printer vi input og returner statisk element
 - [ ] Oppgave 6: Plukk ut det som kommer fra requesten. Print og returner tilbake.
 - [ ] Oppgave 7: Bruk parameter fra request til å søke i DBen. 
