@@ -5,13 +5,11 @@
 Amazon S3 står for Simple Storage Service, og er en tjeneste for lagring og henting av data. Tenk litt på det som en fancy delt disk! 
 
 I dag skal vi bruke det å hoste en statisk nettside. 
-Dette gjør vi ved å lagre html-en og css-en vår i en såkalt S3-bucket. La oss sette igang!
+Dette gjør vi ved å lagre html-en og css-en vår i en såkalt S3-bucket. La oss sette igang! 
 
-## 1.1 Logge inn i AWS.
-Vi starter med å aller først åpne opp s3 i AWS consolet. Logg inn på https://console.aws.amazon.com/. Du har fått brukernavn på epost.
-Velg `IAM User` og skriv inn account ID: `bekk-skygruppa`. Når du er pålogget kan du gå til s3, enten via "Services"-menyen oppe til venstre, søkefeltet på toppem midt i, eller via denne lenken: https://s3.console.aws.amazon.com/s3/home?region=eu-west-1#.
+Start med å gå inn på s3, enten via "Services"-menyen oppe til venstre, søkefeltet på toppem midt i, eller via denne lenken: https://s3.console.aws.amazon.com/s3/home?region=eu-west-1#.
 
-## 1.2 Din S3-bucket
+## 1.1 Din S3-bucket
 Da skal vi lage bøtta vår! Når man skal bruke en bøtte til en statisk nettside er det litt rare regler fra Amazon sin side. En av disse er at en bøtte må hete det samme som domenet som brukes. De må også være unike. 
 Her lager vi en bøtte som heter `<fornavn><etternavn>.bekk.cloud` for å sørge for at det fungerer senere. For eksempel `karinordmann.bekk.cloud`. 
 
@@ -22,7 +20,7 @@ Trykk på den oransje "Create bucket" knappen og velg følgende:
  
 Trykk "Create Bucket" på bunnen. Tadaa! Da har du en bøtte!
 
-## 1.3 Statisk nettside
+## 1.2 Statisk nettside
 
 Til sist må vi jo få opp netsiden.
 Søk opp bøtten din og åpne den opp. Nå skal vi gjøre den om til en statisk nettside. 

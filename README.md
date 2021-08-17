@@ -23,24 +23,21 @@ Default region name: eu-west-1
 Default output format: json
 Hvis du ønsker å gjøre endringer på dette seinere så finner du filen under ~/.aws/credentials.
 
-Installer [serverless](https://www.serverless.com/framework/docs/getting-started/).
+Installer [serverless](https://www.serverless.com/framework/docs/getting-started/). Dette skal vi bruke med lambda.
 
 Installer aws-sdk: `npm install aws-sdk`
 
+### Logg inn i AWS
+Vi starter med å aller først åpne opp AWS consolen, altså nettsiden til aws. Logg inn på https://console.aws.amazon.com/. 
+Brukernavnet er privatmailen din vi fikk i bekk før du startet. Passordet står på tavlen.
 
-## TODO workshop
-Jeg bare plotter ned litt småting. Dette er bare et forslag til struktur, bare å endre som dere vil. 
+Velg `IAM User` og skriv inn account ID: `bekk-skyskolen`.
 
-Jeg tenker vi prepper en ferdig DynamoDB table? Eller skal det også være en del av oppgavene? Jeg mistenker det kanskje blir litt mye jobb med den tiden vi har.
+I samme slengen setter vi også opp så du kan bruke kommandolinjen.
+Dette gjør vi ved å legge inn en aws Access Key og Access Secret på maskinen din. 
+- Gå [hit](https://console.aws.amazon.com/iam/home?region=eu-west-1#/security_credentials): og trykk på "Create New Access Key".
+- skriv kommandoen `aws configure`. Legg inn Access Key og Access secret her når den spør.
+- Velg `default region name`: `eu-west-1`.
+- Velg `default format`: `json`.
 
-- [ ] Script for å lage brukere
-- [ ] Oppgave 0: Sett opp miljø på maskinen din
-- [ ] Oppgave 1: Lag en s3-bøtte og en nettside
-- [ ] Oppgave 2: Vi slenger på en DNS record på bøtta så nettsiden vår har fancy nettside.
-- [x] Oppgave 3: Lambda! Først en enkel hello-world som trigger.
-- [x] Oppgave 4: Next up: Les fra databasen. enkel boto3 query.
-- [ ] Oppgave 5: API gateway in da house. Først endepunkt som sender alt til lambdaen. Så bare printer vi input og returner statisk element
-- [ ] Oppgave 6: Plukk ut det som kommer fra requesten. Print og returner tilbake.
-- [ ] Oppgave 7: Bruk parameter fra request til å søke i DBen. 
-- [ ] Oppgave 8: Ferdig?
-
+Sånn! Da skal du ha aws oppe og kjøre. Du kan teste det ved f.eks. å skrive `aws s3 ls` og se om den lister opp flere ting eller om den gir en feilmelding.
