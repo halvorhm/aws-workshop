@@ -50,13 +50,33 @@ Se over at ting ser riktig ut, hvis de ikke gjør det kan du gå tilbake og fiks
 
 ![](review.png)
 
+## 5.3 CORS
 
-## 5.3 Prøvelsen 
+Dette er en typisk fallgruve når man leker med sky. I denne workshopen jukser vi litt og opner for alle tilganger. **IKKE** gjør dette på faksiske prosjekter ver så snill 😇
+
+Trykk på `CORS` i sidemenyen.
+
+![](cors-1.png)
+
+og så på `Configure`.
+
+![](cors-2.png)
+
+Så skriver du inn `*` i både `Access-Control-Allow-Origin` og `Access-Control-Allow-Headers`.
+
+![](cors-3.png)
+
+Tykk på `add` og de skal dukke opp under input feltene.
+
+![](cors-4.png)
+
+Igjen, måten vi løser dette på her er kun fordi det er en workshop, dette er fyfy 😡 å gjøre på prosjekt
+
+
+## 5.4 Prøvelsen 
 
 Du vil se et grønt banner øvert som sier at gatewayen har blitt lagt. Klikk der eller gå tilbake til oversikten og finn gatewayen din. Finn `Invoke URL` på siden og kopier den. 
 
 Vi kan nå prøve å kalle API-en med `CURL`(eller Postman hvis du foretrekker det). Husk å legge til endepunktet til URL-en din (`/hytter`)
 
 `curl -x GET "<din URL>"`
-
-TODO: CORS
