@@ -4,7 +4,7 @@
 
 
 Nå som vi har prøvd oss på å kjøre og deploye en funksjon, skal vi lage en funksjon som gjør noe litt mer spennende, nemlig å hente data fra en database. Database-tjenesten vi bruker heter DynamoDB, og tabellen kan dere se [her](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=bekk_hytter;tab=items).  
-Funksjonen vår skal hente informasjon om hyttene til Bekk fra tabellen, og printe denne informasjonen.
+Funksjonen vår skal hente informasjon om hyttene til Bekk fra tabellen, og returnere denne informasjonen.
 
 ## 4.1
 
@@ -58,12 +58,12 @@ function lesHyttedataFraTabell() {
 }  
 ```
   
-I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår skal vi bruke en metode som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
+I funksjonen lesHyttedataFraTabell mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår skal vi bruke en metode som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
 I dette eksempelet hentes alle data som ligger i tabellen Movies, og så filtreres dette så man kun blir sittende igjen med feltene "yr" og "title", og bare filmer fra 1950-1959.
 
-I vårt tilfelle vil vi foreløpig ha tak i alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger å ha med er TableName. De andre parameterne trenger dere ikke å tenke på her. Vi kommer tilbake til det i senere oppgaver :) 
+I vårt tilfelle vil vi foreløpig ha tak i alt som ligger i tabellen bekk_hytter, så det eneste parameteret vi trenger å ha med er TableName. De andre parameterne trenger dere ikke å tenke på nå. Vi kommer tilbake til det i senere oppgaver :) 
 
 - Ta utgangspunkt i eksempelet under og fyll ut funksjonen lesHyttedataFraTabell.
 
@@ -90,7 +90,7 @@ Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata"
 - Prøv å kjøre funksjonen din lokalt ved å bruke samme kommando i terminalen som du gjorde med hello-funksjonen:  
 `serverless invoke local --function hentHyttedata`
 
-Dette vil ikke fungere, og gunnen til dette er at vi ikke har lagt til funksjonen i serverless.yml.
+Dette vil ikke fungere, og grunnen til det er at vi ikke har lagt til funksjonen i serverless.yml.
 
 - Åpne serverless.yml. Et stykke ned i fila står dette under functions:
 ```
@@ -106,8 +106,8 @@ Dette vil ikke fungere, og gunnen til dette er at vi ikke har lagt til funksjone
 
 ## 4.3
 
-- Deploy den nye funksjonen slik du gjorde med hello-funksjonen med `serverless deploy --stage dev` . Funksjonen bør nå være å finne i aws-consollen under Lambda -> Functions med navnet dittnavn-dev-hentHyttedata
-
+- Deploy den nye funksjonen slik du gjorde med hello-funksjonen (`serverless deploy --stage dev`) .  
+- Funksjonen bør nå være å finne i aws-consollen under Lambda -> Functions med navnet dittnavn-dev-hentHyttedata
 - Kjør funksjonen ved å trykke på den oransje test-knappen sånn som du gjorde sist.
 
 
