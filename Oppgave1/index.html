@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <title>Bekkhyttene</title>
+    <style>
+      :root {
+        --black: #0e0e0e;
+        --white: #ffffff;
+      }
+
+      body {
+        background-color: var(--black);
+        color: var(--white);
+      }
+
+      #page-header {
+        font-size: 36px;
+        text-align: center;
+      }
+
+      #search-form {
+        display: flex;
+        width: 100%;
+        margin: 48px 24px;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      #search-cabin-location {
+        padding: 12px;
+        min-width: 240px;
+      }
+
+      button {
+        background-color: var(--black);
+        border: solid 1px var(--white);
+        color: var(--white);
+        min-width: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="page-header">Hyttene i Bekk</h1>
+    </header>
+    <main>
+      <form id="search-form">
+        <input id="search-cabin-location" type="text" name="cabin-location" />
+        <button type="submit">Søk</button>
+      </form>
+      <p id="search-status"></p>
+      <ul id="cabin-list"></ul>
+    </main>
+    <script>
+      const API_FUNCTION_URL = "http://example.bekk.cloud/cabin-lambda";
+
+      function renderCabinList(cabins) {
+        const cabinsHtml = cabins
+          .map(
+            (cabin) => `
+            <h2 className="cabin-location">${cabin.sted}</h2>
+            <div className="cabin-info">
+              <p>Sengeplasser: ${cabin.sengeplasser}</p>
+              <p>Avstand fra Oslo: ${cabin.km_fra_oslo} Km</p>
+              <p>Wi-Fi: ${cabin.wifi ? "Ja" : "Nei"}</p>
+            </div>
+        `
+          )
+          .reduce((html, cabinHtml) => html + cabinHtml, "");
+        cabinListElement.innerHTML = cabinsHtml;
+      }
+
+      async function handleFormSubmit(event) {
+        event.preventDefault();
+        const cabinLocation = cabinLocationInputElement.value;
+        const params = objectToQueryParams({ location: cabinLocation });
+        const data = await getData(API_FUNCTION_URL + params);
+        renderCabinList(data.Items);
+      }
+
+      async function getData(url) {
+        return await fetch(url, {
+          headers: {
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }).then((response) => response.json());
+      }
+
+      function objectToQueryParams(obj) {
+        const params = Object.entries(obj)
+          .filter(([, value]) => String(value) !== "")
+          .map(([name, value]) => `${name}=${value}`)
+          .join("&");
+        return "?" + params;
+      }
+
+      const searchFormElement = document.getElementById("search-form");
+      const cabinLocationInputElement = document.getElementById(
+        "search-cabin-location"
+      );
+      const cabinListElement = document.getElementById("cabin-list");
+      const searchStatusElement = document.getElementById("search-status");
+
+      searchFormElement.addEventListener("submit", handleFormSubmit);
+    </script>
+  </body>
+</html>
