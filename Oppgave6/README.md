@@ -21,7 +21,7 @@ Når du har funnet den, trykk på den oransje knappen oppe til høyre hvor det s
 Huk av den lille sjekkboksen for "View as text" for å gjøre livet litt enklere.
 Her ser vi litt morsomme ting, blant annet query params!
 
-Her er et eksempel på dette fra imdb.com, hvor genre og year er queryparametere:  
+Hvis du ikke har vært borti queryparams før, kan du se på dette eksempelet fra imdb.com, hvor genre og year er queryparametere:  
 https://www.imdb.com/search/title/?genres=drama&year=2021
 
 Hvis vi nå legger på litt query parameters når vi sender en melding til apiet vårt, 
