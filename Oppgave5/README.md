@@ -1,5 +1,7 @@
 # Oppgave 5
 
+TODO: forklare bedre hvorfor vi velger visse settings
+
 Da er det er på tide å sette opp API gateway! Hva er det sier du? En API gateway er et mellomlag som tar i mot alle API kall fra klientene og dirigerer dem til riktige microtjeneste. Dette gjør det mulig å både ha flere instanser av microtjenestene og å ha endepunkter som kombinerer data fra flere tjenester. En API Gateway kan også oversette mellom web-venlige og andre typer protokoller.
 
 For å gi ett eksempel så kunne en nettbutikk brukt en API gateway til å ta i mot kall fra en mobilapp, sammle sammen data fra flere endepunkter (vareinfo, avslagspriser, reviews) for å så tilby en vare for personen som bruker appen.
@@ -71,6 +73,8 @@ Tykk på `add` og de skal dukke opp under input feltene.
 ![](cors-4.png)
 
 Igjen, måten vi løser dette på her er kun fordi det er en workshop, dette er fyfy 😡 å gjøre på prosjekt
+
+TODO: fikse bilde, ha med get som metore i CORS
 
 
 ## 5.4 Prøvelsen 
