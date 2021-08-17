@@ -36,7 +36,7 @@ Bekk har hytter både på fjellet og ved havet. La oss prøve å kun hente de hy
 - Legg til queryparameteret “lokasjon” etter /hytter i api-url-en din.
 Vi må også redigere lambdafunksjonen vår, sånn at den tar hensyn til at vi kan ha sendt med et queryparameter, og at den i så fall bare returnerer de relevante hyttene.
 - Gå inn i Functions -> Lambda og finn lambdafunksjonen din i aws-consollen.
-- Trykk på den lille trekanten i den orange test-boksen. Trykk configure test event og lim inn dette:
+- Trykk på den lille trekanten i den orange test-boksen. Trykk configure test event og lim inn dette (skriv det inn manuelt hvis du får feil når du limer det inn)
 
 ```
 {
