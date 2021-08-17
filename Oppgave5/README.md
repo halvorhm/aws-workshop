@@ -79,4 +79,4 @@ Du vil se et grønt banner øvert som sier at gatewayen har blitt lagt. Klikk de
 
 Vi kan nå prøve å kalle API-en med `CURL`(eller Postman hvis du foretrekker det). Husk å legge til endepunktet til URL-en din (`/hytter`)
 
-`curl -x GET "<din URL>"`
+`curl -X GET "<din URL>"`
