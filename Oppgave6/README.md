@@ -33,8 +33,12 @@ mat: "digg"}` i event-objektet! (søk etter queryStringParameters på siden hvis
 Hittil har vi kalt /hytter for å hente hytteinformasjon med API-et vårt.
 Nå skal vi utvide funksjonaliteten så vi også kan velge å kun hente hytter med spesifikke egenskaper ved hjelp av query params!
 Bekk har hytter både på fjellet og ved havet. La oss prøve å kun hente de hyttene som ligger på fjellet. Denne informasjonen finner vi på feltet “lokasjon”.
-- Legg til queryparameteret “lokasjon” etter /hytter i api-url-en din.
-Vi må også redigere lambdafunksjonen vår, sånn at den tar hensyn til at vi kan ha sendt med et queryparameter, og at den i så fall bare returnerer de relevante hyttene.
+- Legg til et queryparameter etter /hytter i url-en hvor “lokasjon” er "fjellet". Ble responsen noe annerledes eller var det fremdeles det samme? 
+
+Å legge til lokasjon som queryparam gjør ikke i seg selv at vi får henta de hyttene som er på fjellet. Vi må også redigere lambdafunksjonen vår, sånn at den tar hensyn til at vi kan ha sendt med et queryparameter, og at den i så fall bare returnerer de relevante hyttene. Det skal vi gjøre nå! :) 
+
+
+### 6.4
 - Gå inn i Functions -> Lambda og finn lambdafunksjonen din i aws-consollen.
 - Trykk på den lille trekanten i den orange test-boksen. Trykk configure test event og lim inn dette (skriv det inn manuelt hvis du får feil når du limer det inn)
 
@@ -73,11 +77,11 @@ var params = {
 Deploy dette og test funksjonen i consollen, og se om du nå får opp tre hytter, som alle har lokasjon: fjellet.
 
 
-## 6.4
+## 6.5
 Helt til sist vil vi jo sende requesten fra nettsiden vår! Ta Api-gateway URLen din fra tidligere. Lim inn denne i `API_FUNCTION_URL` i index.html filen din (med `hytte` bak). 
 Deretter laster du opp den nye index.html siden din i s3 bøtta. Da bør du være good to go!
 
-## 6.5
+## 6.6
 Gratulerer! Du har nå satt opp en vaskeekte tjeneste! Du har nå:
 - En nettside til brukeren
 - En api gateway som kan ta imot spørringer og sende de til forskjellige steder. 
