@@ -15,13 +15,7 @@ NB! Les oppgavene nøye.
 Målet er ikke å komme gjennom alle oppgavene, men bare å prøve ting i skyen, så ikke stress.
 
 ## Prereqs
-Installer aws cli (MacOS: brew install awscli). Kjør kommandoen aws configure. Legg inn verdiene:
-
-Access Key (fra epost)
-Secret (fra epost)
-Default region name: eu-west-1
-Default output format: json
-Hvis du ønsker å gjøre endringer på dette seinere så finner du filen under ~/.aws/credentials.
+Installer aws cli (MacOS: brew install awscli).
 
 Installer [serverless](https://www.serverless.com/framework/docs/getting-started/). Dette skal vi bruke med lambda.
 
