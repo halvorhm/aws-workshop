@@ -85,18 +85,12 @@ ddb.scan(params).promise();
 
 ```
 
-- For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
-`serverless invoke local --function hentHyttedata`. 
+Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata" som ligger under Lambda -> Functions i aws-consollen (nettsiden)
 
+- Prøv å kjøre funksjonen din lokalt ved å bruke samme kommando i terminalen som du gjorde med hello-funksjonen:  
+`serverless invoke local --function hentHyttedata`
 
-
-Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata" som ligger under Lambda -> Functions i aws-consollen (nettsiden).
-
-## 4.3
-
-- Prøv å deploye den nye funksjonen slik du gjorde med hello-funksjonen med `serverless deploy --stage dev`   
-  I terminalen vil du se at den nye funksjonen ikke dukker opp under `functions` når du kjører kommandoen, og du vil heller ikke finne den under Lambda -> Functions i aws-consollen.
-  Grunnen til dette er at vi ikke har lagt til funksjonen i serverless.yml.
+Dette vil ikke fungere, og gunnen til dette er at vi ikke har lagt til funksjonen i serverless.yml.
 
 - Åpne serverless.yml. Et stykke ned i fila står dette under functions:
 ```
@@ -110,7 +104,9 @@ Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata"
     handler: handler.hentHyttedata
 ```
 
-- Prøv å deploye på nytt. Funksjonen bør nå være å finne i aws-consollen under Lambda -> Functions med navnet dittnavn-dev-hentHyttedata
+## 4.3
+
+- Deploy den nye funksjonen slik du gjorde med hello-funksjonen med `serverless deploy --stage dev` . Funksjonen bør nå være å finne i aws-consollen under Lambda -> Functions med navnet dittnavn-dev-hentHyttedata
 
 - Kjør funksjonen ved å trykke på den oransje test-knappen sånn som du gjorde sist.
 
