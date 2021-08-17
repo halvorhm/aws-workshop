@@ -46,7 +46,7 @@ Vi må også redigere lambdafunksjonen vår, sånn at den tar hensyn til at vi k
 }
 ```
 
-Dette gjør at vi later som vi har sendt inn lokasjon som queryparameter når vi tester funksjonen vår.
+Dette gjør at vi later som vi har sendt inn lokasjon som queryparameter når vi tester funksjonen vår i consollen.
 Queryparameterne våre finner vi inni event i lambdafunksjonen under event.queryStringParameters
 
 - Legg til en const som inneholder queryparameteret lokasjon mellom exports.handler.... og await, og send denne inn som parameter til lesHyttedataFraTabell. Du kan sniktitte på lambdafunksjonen som heter hentHyttedataMedQueryparams hvis du lurer på hvordan du skal gjøre det.
