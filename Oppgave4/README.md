@@ -46,11 +46,8 @@ Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden pÃ¥ forhÃ
 
 ```
 module.exports.hentHyttedata = async (event, context, callback) => {
-    await lesHyttedataFraTabell().then(hyttedata => {
-      hyttedata.Items.forEach(function(hytte){
-        console.log(hytte)
-      })
-
+    return await lesHyttedataFraTabell().then(hyttedata => {
+        return hyttedata;
     }).catch((err) => {
       console.error(err);
     })  
