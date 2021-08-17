@@ -25,8 +25,8 @@ Hvis du ikke har vært borti queryparams før, kan du se på dette eksempelet fr
 https://www.imdb.com/search/title/?genres=drama&year=2021
 
 Hvis vi nå legger på litt query parameters når vi sender en melding til apiet vårt, 
-f.eks. legg på `?mat=digg` så ser vi dette i loggen som `queryStringParameters: {
-mat: "digg"}` i event-objektet!
+f.eks. legg på `?mat=digg` etter `/hytter` så ser vi dette i loggen som `queryStringParameters: {
+mat: "digg"}` i event-objektet! (søk etter queryStringParameters på siden hvis det er vanskelig å finne frem i loggen!)
 
 
 ### 6.3
