@@ -50,10 +50,11 @@ Dette gjør at vi later som vi har sendt inn lokasjon som queryparameter når vi
 Queryparameterne våre finner vi inni event i lambdafunksjonen under event.queryStringParameters
 
 - Legg til en const som inneholder queryparameteret lokasjon mellom exports.handler.... og await, og send denne inn som parameter til lesHyttedataFraTabell. Du kan sniktitte på lambdafunksjonen som heter hentHyttedataMedQueryparams hvis du lurer på hvordan du skal gjøre det.
-- Ta en ny kikk på eksempelet med filmtabellen. Prøv å bruke FilterExpression og ExpressionAttributeValues for å sette “lokasjon” som et filter i søket.
 
 🤫  Du kan ta en sniktitt på lambdaen `hentHyttedataMedQueryparams` her 🤫.
 
+- Ta en ny kikk på eksempelet med filmtabellen. Prøv å bruke FilterExpression og ExpressionAttributeValues for å sette “lokasjon” som et filter i søket. (det er lov å sniktitte her og).
+  
 ```
 var params = {
     TableName: “Movies”,
