@@ -29,7 +29,7 @@ f.eks. legg på `?mat=digg` så ser vi dette i loggen som `queryStringParameters
 mat: "digg"}` i event-objektet!
 
 
-### 6.4
+### 6.3
 Hittil har vi kalt /hytter for å hente hytteinformasjon med API-et vårt.
 Nå skal vi utvide funksjonaliteten så vi også kan velge å kun hente hytter med spesifikke egenskaper ved hjelp av query params!
 Bekk har hytter både på fjellet og ved havet. La oss prøve å kun hente de hyttene som ligger på fjellet. Denne informasjonen finner vi på feltet “lokasjon”.
