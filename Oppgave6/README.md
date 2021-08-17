@@ -68,7 +68,7 @@ var params = {
 }
 ```
 
-Trykk på Deploy og Test, og se om du nå får opp tre hytter, som alle har lokasjon: fjellet.
+Deploy og test funksjonen, og se om du nå får opp tre hytter, som alle har lokasjon: fjellet.
 
 
 ## 6.4
