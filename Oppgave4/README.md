@@ -3,20 +3,44 @@
 ## Lese fra DynamoDB
 
 
-Nå som vi har prøvd oss på å kjøre og deploye en funksjon, skal vi lage en funksjon som gjør noe litt mer spennende, nemlig å hente hytteinfo fra en database. Tabellen er laget med en AWS-tjeneste som heter DynamoDB, og finnes her:
-https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=bekk_hytter;tab=items
-
-Funksjonen vår skal hente hytte-informasjon om alle hyttene i tabellen, og printe denne informasjonen.
+Nå som vi har prøvd oss på å kjøre og deploye en funksjon, skal vi lage en funksjon som gjør noe litt mer spennende, nemlig å hente data fra en database. Database-tjenesten vi bruker heter DynamoDB, og tabellen kan dere se [her](https://eu-west-1.console.aws.amazon.com/dynamodb/home?region=eu-west-1#tables:selected=bekk_hytter;tab=items).  
+Funksjonen vår skal hente informasjon om hyttene til Bekk fra tabellen, og printe denne informasjonen.
 
 ## 4.1
 
-- Åpne handler.js-fila som ble opprettet da du opprettet serverless-prosjekt. Vi skal lage funksjonen vår her.
-- Siden vi skal hente data fra en DynamoDB-tabell, må vi gjøre noe for at koden vår skal få tilgang til denne aws-tjenesten. Det gjør vi ved hjelp av AWS SDK, ved å legge til disse to linjene på toppen av handler.js:  
+- Åpne handler.js-fila som ble laget da du opprettet serverless-prosjektet. Vi skal lage funksjonen vår her.
+- Det første vi skal gjøre er å legge til disse to linjene på toppen av handler.js:
+
 ```
 const AWS = require('aws-sdk');
-const database = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
+const ddb = new AWS.DynamoDB.DocumentClient({region: 'eu-west-1'});
 ```
-Da kan vi begynne på selve funksjonen! :) Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden på forhånd.
+
+[AWS.DynamoDB.DocumentClient](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html) inneholder nyttige metoder for å gjøre ting med databasen (get, put, query, delete osv.).
+
+
+- Vi må også gjøre en liten endring i serverless.yml-fila for å få tilgang til å lese fra databasen. Legg til iamRoleStatements under provider, så det ser sånn ut:
+
+```
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: eu-west-1
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'dynamodb:*'
+      Resource:
+        - '*'
+```
+  
+  
+Nå er vi klare til å begynne på selve funksjonen! :) 
+
+
+## 4.2
+Siden vi ikke har kjempemye tid i dag, har vi gjort klart noe av koden på forhånd.
 
 - Kopier dette inn i handler.js:
 
@@ -34,13 +58,10 @@ module.exports.hentHyttedata = async (event, context, callback) => {
 
 function lesHyttedataFraTabell() {
    //kode for å hente data fra tabellen 
-}
+}  
 ```
-
-
-## 4.2
-
-I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår kan vi bruke en dynamoDB-funksjon som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
+  
+I funksjonen du nettopp kopierte mangler koden som trengs for å hente data fra tabellen, så det skal vi fylle inn nå! For å hente data fra tabellen vår skal vi bruke en metode som heter scan. Denne henter all data fra en tabell, og man kan velge å filtrere dataene når de er hentet.
 
 Under er et eksempel på bruk av scan for henting av data fra en filmtabell. 
 I dette eksempelet hentes alle data som ligger i tabellen Movies, og så filtreres dette så man kun blir sittende igjen med feltene "yr" og "title", og bare filmer fra 1950-1959.
@@ -63,15 +84,16 @@ var params = {
     }
 }
 
-database.scan(params).promise();
+ddb.scan(params).promise();
 
 ```
 
-For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
-`serverless invoke local --function hentHyttedata`
+- For å teste funksjonen din lokalt, kjører du samme kommando i terminalen som du gjorde med hello-funksjonen:  
+`serverless invoke local --function hentHyttedata`. 
+
+
 
 Hvis du står fast kan du ta en kikk på den ferdige funksjonen "hent-hyttedata" som ligger under Lambda -> Functions i aws-consollen (nettsiden).
-
 
 ## 4.3
 
