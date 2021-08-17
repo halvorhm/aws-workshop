@@ -1,6 +1,10 @@
 # Oppgave 5
 
-Da er det er på tide å sette opp API gateway! Hva er det sier du? Jo det er mellomlaget mellom logikken (lambda) og konsumenten av .....
+Da er det er på tide å sette opp API gateway! Hva er det sier du? En API gateway er et mellomlag som tar i mot alle API kall fra klientene og dirigerer dem til riktige microtjeneste. Dette gjør det mulig å både ha flere instanser av microtjenestene og å ha endepunkter som kombinerer data fra flere tjenester. En API Gateway kan også oversette mellom web-venlige og andre typer protokoller.
+
+For å gi ett eksempel så kunne en nettbutikk brukt en API gateway til å ta i mot kall fra en mobilapp, sammle sammen data fra flere endepunkter (vareinfo, avslagspriser, reviews) for å så tilby en vare for personen som bruker appen.
+
+API gatewayer er veldig fleksible, og man kunne sikkert kjørt en workshop bare på det. Så I denne workshoppen skal vi bare dyppe tæerne litt og lage en veldig enkel API Gateway som tar i mot en request og svarer med ett datasett.
 
 ## 5.1 Å Finne frem
 
@@ -54,3 +58,5 @@ Du vil se et grønt banner øvert som sier at gatewayen har blitt lagt. Klikk de
 Vi kan nå prøve å kalle API-en med `CURL`(eller Postman hvis du foretrekker det). Husk å legge til endepunktet til URL-en din (`/hytter`)
 
 `curl -x GET "<din URL>"`
+
+TODO: CORS
