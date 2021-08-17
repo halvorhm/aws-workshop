@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
   <head>
     <title>Bekkhyttene</title>
     <style>
@@ -75,7 +75,7 @@
         const cabinLocation = cabinLocationInputElement.value;
         const params = objectToQueryParams({ location: cabinLocation });
         const data = await getData(API_FUNCTION_URL + params);
-        renderCabinList(data.cabins);
+        renderCabinList(data.Items);
       }
 
       async function getData(url) {
@@ -89,6 +89,7 @@
 
       function objectToQueryParams(obj) {
         const params = Object.entries(obj)
+          .filter(([, value]) => String(value) !== "")
           .map(([name, value]) => `${name}=${value}`)
           .join("&");
         return "?" + params;
